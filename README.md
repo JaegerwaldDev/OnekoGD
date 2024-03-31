@@ -1,6 +1,6 @@
 # oneko.gd
 
-A very silly and simple port of [github.com/](https://github.com/adryd325/oneko.js)](oneko.js) to GDScript.
+A very silly and simple port of [oneko.js](https://github.com/adryd325/oneko.js) to GDScript.
 All I really did was copy and paste the JavaScript code and change it to Godot's syntax and functions.
 I have a very high suspicion that some aspects of this program may not behave like the original script,
 so if you find out why, please report it as an [issue](https://www.github.com/JaegerwaldDev/OnekoGD/issues)!
