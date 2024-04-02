@@ -4,11 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cd77b0fxjwjbl" path="res://neko.png" id="1_whxow"]
 
 [node name="Node2D" type="Node2D"]
-visible = false
 script = ExtResource("1_i4h0e")
 
 [node name="Neko" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(32, 32)
 texture = ExtResource("1_whxow")
 hframes = 8

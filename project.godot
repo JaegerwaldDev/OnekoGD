@@ -24,10 +24,22 @@ config/icon="res://icon.png"
 window/size/viewport_width=32
 window/size/viewport_height=32
 window/size/initial_position_type=3
+window/size/resizable=false
 window/size/borderless=true
 window/size/always_on_top=true
 window/size/transparent=true
+window/size/window_width_override=32
+window/size/window_height_override=32
+window/stretch/scale_mode="integer"
 window/per_pixel_transparency/allowed=true
+
+[input]
+
+right_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [rendering]
 

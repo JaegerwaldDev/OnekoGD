@@ -17,6 +17,7 @@ var frameCount = 0
 var idleTime = 0
 var idleAnimation = null
 var idleAnimationFrame = 0
+var staying = false
 
 var nekoSpeed = 10
 var spriteSets = {
@@ -85,8 +86,6 @@ var spriteSets = {
 var lastFrameTimestamp
 
 func onAnimationFrame(timestamp):
-	visible = true
-	$Neko.visible = true
 	if !lastFrameTimestamp:
 		lastFrameTimestamp = timestamp
 	if timestamp-lastFrameTimestamp > 100:
@@ -128,7 +127,7 @@ func idle():
 				setSprite("tired", 0)
 				pass
 			setSprite("sleeping", floor(idleAnimationFrame / 4))
-			if idleAnimationFrame > 192:
+			if idleAnimationFrame > 192 and not(staying):
 				resetIdleAnimation()
 			pass
 		"scratchWallN", "scratchWallS", "scratchWallE", "scratchWallW", "scratchSelf":
@@ -181,6 +180,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	mousePosX = get_window().position[0] + get_global_mouse_position()[0]
-	mousePosY = min(max(0, get_window().position[1] + get_global_mouse_position()[1]), DisplayServer.screen_get_size()[1] - 64)
+	if Input.is_action_just_pressed("right_click"):
+		staying = not(staying)
+	
+	if staying:
+		mousePosX = DisplayServer.screen_get_size()[0]-128
+		mousePosY = DisplayServer.screen_get_size()[1]-64
+	else:
+		mousePosX = get_window().position[0] + get_global_mouse_position()[0]
+		mousePosY = min(max(0, get_window().position[1] + get_global_mouse_position()[1]), DisplayServer.screen_get_size()[1] - 64)
 	onAnimationFrame(Time.get_ticks_msec())
